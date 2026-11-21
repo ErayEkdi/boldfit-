@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BoldFit | İlkadım, Samsun Spor & Fitness Salonu</title>
+  <meta name="description" content="Samsun İlkadım BoldFit Spor Salonu. Fitness, ağırlık, kardiyo, pilates ve kişisel antrenörlük. WhatsApp üzerinden hızlı üyelik ve deneme bilgisi alın." />
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --bg-soft: #13171d;
+      --card: #171c24;
+      --border: #262e3a;
+      --text: #f3f5f7;
+      --muted: #9aa4b2;
+      --accent: #c8ff00;
+      --accent-dark: #a6d600;
+      --whatsapp: #25d366;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Üst Bilgi Barı */
+    .topbar {
+      background: #07090b;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 13, 16, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .brand-title span {
+      color: var(--accent);
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #0b0d10;
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 56px 0 48px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(200, 255, 0, 0.12), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(37, 211, 102, 0.08), transparent 45%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200, 255, 0, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(200, 255, 0, 0.28);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 24px;
+      max-width: 540px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 22px;
+      color: #fff;
+    }
+
+    .stat span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Hızlı Bilgi Formu */
+    .lead-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    .lead-card h2 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .lead-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #d6dde6;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent);
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    /* Bölümler */
+    section {
+      padding: 56px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    /* Filtre Butonları */
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent);
+      color: #0b0d10;
+      border-color: var(--accent);
+    }
+
+    /* Kart Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(200, 255, 0, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .card-tag {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .card-action {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Saatler ve Konum */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .hours-list {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .hours-list li:last-child {
+      border-bottom: none;
+    }
+
+    .highlight-day {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Yüzen WhatsApp Butonu */
+    .floating-wa {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: var(--whatsapp);
+      color: #06210f;
+      font-weight: 800;
+      padding: 12px 18px;
+      border-radius: 999px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      z-index: 60;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .grid-3,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .topbar-inner {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Üst Bilgi -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Kazım Karabekir Cad., Güzide Sk. No:42 • İlkadım / Samsun</span>
+      <span>Hafta İçi 07:00'den İtibaren Açık • Tel: 0540 362 26 53</span>
+    </div>
+  </div>
+
+  <!-- Menü -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="brand-title">BOLD<span>FIT</span></span>
+        <span class="brand-sub">İlkadım • Samsun</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#programlar">Programlar</a>
+        <a href="#neden-biz">Avantajlar</a>
+        <a href="#iletisim">Saatler & İletişim</a>
+      </nav>
+      <a href="https://wa.me/905403622653?text=Merhaba%2C%20BoldFit%20%C3%BCyelik%20ve%20ders%20programlar%C4%B1%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F" target="_blank" rel="noopener" class="btn btn-accent">
+        WhatsApp Bilgi Al
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">★ 4.8 / 5 Üye Değerlendirmesi • İlkadım, Samsun</div>
+        <h1>Sınırlarını Zorla, <span>BoldFit</span> ile Gücünü Keşfet</h1>
+        <p>
+          Sabah 07:00’den gece geç saatlere kadar açık modern antrenman alanı, profesyonel ekipmanlar, pilates ve kişisel antrenörlük desteğiyle hedefine planlı şekilde ulaş.
+        </p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="#programlar" class="btn btn-accent">Programları İncele</a>
+          <a href="tel:+905403622653" class="btn btn-outline">Hemen Ara: 0540 362 26 53</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>07:00 – 23:00</strong>
+            <span>Geniş Çalışma Saatleri</span>
+          </div>
+          <div class="stat">
+            <strong>Çarşamba 02:00</strong>
+            <span>Gece Antrenman İmkanı</span>
+          </div>
+          <div class="stat">
+            <strong>70+ Yorum</strong>
+            <span>Yüksek Üye Memnuniyeti</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hızlı WhatsApp Bilgi Formu -->
+      <div class="lead-card">
+        <h2>Hızlı Üyelik & Bilgi Formu</h2>
+        <p>Hedefini seç, tek tıkla WhatsApp üzerinden güncel üyelik bilgisi al.</p>
+
+        <form id="waForm">
+          <div class="form-group">
+            <label for="adSoyad">Adınız (İsteğe bağlı)</label>
+            <input type="text" id="adSoyad" class="form-control" placeholder="Örn: Ahmet Yılmaz" />
+          </div>
+
+          <div class="form-group">
+            <label for="hedef">İlgilendiğiniz Alan</label>
+            <select id="hedef" class="form-control">
+              <option value="Fitness & Ağırlık Üyeliği">Fitness & Ağırlık Üyeliği</option>
+              <option value="Kilo Verme & Kardiyo Programı">Kilo Verme & Kardiyo Programı</option>
+              <option value="Pilates & Esneklik">Pilates & Esneklik</option>
+              <option value="Birebir Kişisel Antrenör (PT)">Birebir Kişisel Antrenör (PT)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="sure">Düşündüğünüz Üyelik Süresi</label>
+            <select id="sure" class="form-control">
+              <option value="Aylık Üyelik">Aylık Üyelik</option>
+              <option value="3 Aylık Avantajlı Paket">3 Aylık Avantajlı Paket</option>
+              <option value="6 Aylık / Yıllık Paket">6 Aylık / Yıllık Paket</option>
+              <option value="Önce Salonu Görmek İstiyorum">Önce Salonu Görmek İstiyorum</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-accent w-full">
+            WhatsApp ile Fiyat & Bilgi Sor →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programlar -->
+  <section id="programlar">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Antrenman Alanları & Programlar</h2>
+          <p>Seviyene ve hedefine uygun alanı seç, hemen bilgi al.</p>
+        </div>
+        <div class="filters" id="filterBar">
+          <button class="filter-btn active" data-filter="all">Tümü</button>
+          <button class="filter-btn" data-filter="fitness">Fitness</button>
+          <button class="filter-btn" data-filter="pilates">Pilates</button>
+          <button class="filter-btn" data-filter="pt">Kişisel Antrenör</button>
+        </div>
+      </div>
+
+      <div class="grid-3" id="programCards">
+        <div class="card" data-category="fitness">
+          <div>
+            <div class="card-tag">Fitness & Güç</div>
+            <h3>Ağırlık ve Kas Geliştirme</h3>
+            <p>Serbest ağırlık istasyonları ve modern makinelerle başlangıçtan ileri seviyeye güvenli güç antrenmanı.</p>
+          </div>
+          <a class="card-action" href="https://wa.me/905403622653?text=Merhaba%2C%20A%C4%9F%C4%B1rl%C4%B1k%20ve%20Fitness%20%C3%BCyeli%C4%9Fi%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F" target="_blank" rel="noopener">
+            WhatsApp'tan Bilgi Al →
+          </a>
+        </div>
+
+        <div class="card" data-category="fitness">
+          <div>
+            <div class="card-tag">Kardiyo & Yağ Yakımı</div>
+            <h3>Kondisyon ve Dayanıklılık</h3>
+            <p>Koşu bantları, bisikletler ve fonksiyonel antrenman ekipmanlarıyla form tutma ve kondisyon artırma.</p>
+          </div>
+          <a class="card-action" href="https://wa.me/905403622653?text=Merhaba%2C%20Kardiyo%20ve%20kilo%20verme%20programlar%C4%B1%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F" target="_blank" rel="noopener">
+            WhatsApp'tan Bilgi Al →
+          </a>
+        </div>
+
+        <div class="card" data-category="pilates">
+          <div>
+            <div class="card-tag">Duruş & Esneklik</div>
+            <h3>Pilates & Core Çalışması</h3>
+            <p>Omurga sağlığını destekleyen, esneklik ve denge kazandıran planlı pilates ve sıkılaşma seansları.</p>
+          </div>
+          <a class="card-action" href="https://wa.me/905403622653?text=Merhaba%2C%20Pilates%20seanslar%C4%B1%20ve%20saatleri%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F" target="_blank" rel="noopener">
+            WhatsApp'tan Bilgi Al →
+          </a>
+        </div>
+
+        <div class="card" data-category="pt">
+          <div>
+            <div class="card-tag">Birebir Takip</div>
+            <h3>Personal Training (PT)</h3>
+            <p>Vücut analizi, kişiye özel antrenman programı ve birebir eğitmen gözetimiyle hızlandırılmış sonuç.</p>
+          </div>
+          <a class="card-action" href="https://wa.me/905403622653?text=Merhaba%2C%20birebir%20Personal%20Training%20(PT)%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F" target="_blank" rel="noopener">
+            WhatsApp'tan Bilgi Al →
+          </a>
+        </div>
+
+        <div class="card" data-category="fitness">
+          <div>
+            <div class="card-tag">Esnek Saatler</div>
+            <h3>Erken Kuş & Gece Antrenmanı</h3>
+            <p>İş veya okul öncesi 07:00’de spora başla; Çarşamba günleri gece 02:00’ye kadar rahatça antrenman yap.</p>
+          </div>
+          <a class="card-action" href="https://wa.me/905403622653?text=Merhaba%2C%20%C3%A7al%C4%B1%C5%9Fma%20saatleriniz%20ve%20%C3%BCyelik%20se%C3%A7enekleriniz%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F" target="_blank" rel="noopener">
+            WhatsApp'tan Bilgi Al →
+          </a>
+        </div>
+
+        <div class="card" data-category="pt">
+          <div>
+            <div class="card-tag">Ölçüm & Planlama</div>
+            <h3>Hedef Odaklı Programlama</h3>
+            <p>İlk günden itibaren ne yapacağını bil: seviyene göre hazırlanan takip edilebilir antrenman planı.</p>
+          </div>
+          <a class="card-action" href="https://wa.me/905403622653?text=Merhaba%2C%20yeni%20ba%C5%9Flayanlar%20i%C3%A7in%20program%20ve%20%C3%BCyelik%20bilgisi%20alabilir%20miyim%3F" target="_blank" rel="noopener">
+            WhatsApp'tan Bilgi Al →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neden Biz -->
+  <section id="neden-biz" style="background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Neden BoldFit?</h2>
+          <p>İlkadım’da düzenli spor yapmayı kolaylaştıran detaylar</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Merkezi Konum</h3>
+          <p>Kazım Karabekir Caddesi üzerindeki ulaşımı kolay lokasyonumuzla işten veya okuldan sonra zaman kaybetmeden salona gelin.</p>
+        </div>
+        <div class="card">
+          <h3>Sıra Beklemeden Antrenman</h3>
+          <p>Sabah 07:00’den gece 23:00’e (Çarşamba 02:00’ye) kadar uzanan geniş saat aralığıyla kendi temponuza uygun zamanda çalışın.</p>
+        </div>
+        <div class="card">
+          <h3>Yüksek Üye Memnuniyeti</h3>
+          <p>Temiz soyunma alanları, bakımlı ekipmanlar ve ilgili ekip yaklaşımıyla sürdürülebilir bir spor deneyimi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Saatler ve İletişim -->
+  <section id="iletisim">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Çalışma Saatleri & İletişim</h2>
+          <p>Salonu yerinde görmek veya üyelik bilgisi almak için bize ulaşın.</p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="card">
+          <h3>Çalışma Saatlerimiz</h3>
+          <ul class="hours-list">
+            <li><span>Pazartesi – Salı</span><span>07:00 – 23:00</span></li>
+            <li class="highlight-day"><span>Çarşamba (Gece Açık)</span><span>07:00 – 02:00</span></li>
+            <li><span>Perşembe – Cumartesi</span><span>07:00 – 23:00</span></li>
+            <li><span>Pazar</span><span>10:00 – 15:00</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>Adres & İletişim</h3>
+            <p style="margin-top:10px;">
+              <strong>Adres:</strong><br />
+              Kazım Karabekir Caddesi, Güzide Sk. No:42<br />
+              55070 İlkadım / Samsun
+            </p>
+            <p>
+              <strong>Telefon & WhatsApp:</strong><br />
+              0540 362 26 53
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a href="https://wa.me/905403622653?text=Merhaba%2C%20BoldFit%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" class="btn btn-accent">
+              WhatsApp'tan Yaz
+            </a>
+            <a href="tel:+905403622653" class="btn btn-outline">
+              Telefonla Ara
+            </a>
+            <button type="button" class="btn btn-outline" id="copyAddressBtn">
+              Adresi Kopyala
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 BoldFit İlkadım / Samsun — Tüm Hakları Saklıdır.
+    </div>
+  </footer>
+
+  <!-- Yüzen WhatsApp Butonu -->
+  <a class="floating-wa" href="https://wa.me/905403622653?text=Merhaba%2C%20BoldFit%20%C3%BCyelik%20ve%20fiyat%20bilgisi%20alabilir%20miyim%3F" target="_blank" rel="noopener">
+    WhatsApp Bilgi Al
+  </a>
+
+  <script>
+    // Kategori Filtreleme
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('#programCards .card');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+
+        cards.forEach((card) => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Hızlı WhatsApp Formu
+    document.getElementById('waForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const ad = document.getElementById('adSoyad').value.trim();
+      const hedef = document.getElementById('hedef').value;
+      const sure = document.getElementById('sure').value;
+
+      const adMetni = ad ? `Ben ${ad}. ` : '';
+      const mesaj = `Merhaba, ${adMetni}BoldFit web sitenizden ulaşıyorum. "${hedef}" (${sure}) hakkında bilgi alabilir miyim?`;
+      const url = `https://wa.me/905403622653?text=${encodeURIComponent(mesaj)}`;
+      window.open(url, '_blank');
+    });
+
+    // Adres Kopyalama
+    document.getElementById('copyAddressBtn').addEventListener('click', function () {
+      const adres = 'Kazım Karabekir Caddesi, Güzide Sk. No:42, 55070 İlkadım/Samsun';
+      navigator.clipboard.writeText(adres).then(() => {
+        const eskiYazi = this.textContent;
+        this.textContent = 'Adres Kopyalandı ✓';
+        setTimeout(() => {
+          this.textContent = eskiYazi;
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
